@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Felix Tabar - Portfolio</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!--
+
+-->
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header" id="header">
+        <div class="container">
+            <nav class="nav-main">
+                <a href="../index.html">About Me</a>
+                <a href="../echo/index.html">Project Echo</a>
+                <a href="../entropy/index.html">Entropy</a>
+                <a href="../blaze/index.html">Final Blaze</a>
+                <a href="#">Personal Project</a>
+                <a href="../specialisation/index.html">Specialisation</a>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Mobile Navigation -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <nav class="mobile-nav" id="mobileNav">
+        <button class="mobile-nav-close" id="mobileNavClose">×</button>
+        <ul class="mobile-nav-links">
+            <li><a href="#collections">Collections</a></li>
+            <li><a href="#story">Our Story</a></li>
+            <li><a href="#craftsmanship">Craftsmanship</a></li>
+            <li><a href="#contact">Visit Us</a></li>
+        </ul>
+        <div class="mobile-nav-cta">
+            <a href="#contact" class="btn-primary">Book Appointment</a>
+        </div>
+    </nav>
+    
+    <section class="personal" id="personal">
+        <!-- <img src="images/project_logo.png" alt="Project Logo" class="project-logo"> -->
+
+        <div class="container">
+            <div class="personal-grid">
+                <div class="personal-content">
+
+                    <p class="text-label personal-label">Personal Project</p>
+                    <h2 class="heading-display story-title">
+                        Multiplayer Movement Demo
+                    </h2>
+                    <p class="text-body personal-text">
+                        For four weeks I worked on a small personal game with a specific focus on networking, latency compensation and movement.
+                        I made my own custom character controller with Titanfall-style movement and velocity management, with wallrunning and doublejumping.
+                    </p>
+                    <p class="text-body personal-text">
+                        This project was made in Unity 6 using C# and their DOTS Netcode for Entities system.
+                    </p>
+
+                    <div class="personal-signature">
+                        <p class="signature-name">Local Room Based Matchmaking System</p>
+                    </div>
+
+                    <p class="text-body personal-text">
+                        When booting up the game, the user is presented with two options. Open a room or join a room.
+                        If the user opens a room, they will be put into the game while their room is broadcast to all other users on the network over UDP.
+                    </p>
+
+                    <p class="text-body personal-text">
+                        Another user can then through the main menu see a list of all rooms that are being broadcast, updating in real time.
+                        They can then choose to connect to a room, which will connect the room host and the user and they will now be able to play together.
+                    </p>
+                </div>
+
+                <div class="personal-images">
+
+                    <div class="personal-image">
+                        <img src="images/main-menu.png" 
+                            alt="Main menu">
+
+                        <div class="collection-overlay">
+                            <p class="collection-count">User has two choices, hosting a room or joining a room</p>
+                        </div>
+                    </div>
+
+                    <div class="personal-image">
+                        <img src="images/room-list.png" 
+                            alt="List of rooms">
+
+                        <div class="collection-overlay">
+                            <p class="collection-count">List of rooms being hosted by other players. One room being visible and available</p>
+                        </div>
+                    </div>
+
+                    <div class="personal-image">
+                        <img src="images/player.png" 
+                            alt="Other player">
+
+                        <div class="collection-overlay">
+                            <p class="collection-count">A player, as seen from the perspective of another player</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <hr class="personal-bar">
+
+            <div class="personal-grid">
+                <div class="personal-content">
+                    <div class="personal-signature">
+                        <p class="signature-name">Player Controller</p>
+                    </div>
+                    <p class="text-body personal-text">
+                        Since I wanted complete control over the movement and behaviour of the character, I opted for manually creating my own controller from scratch.
+                        I implemented custom collision handling using Unity's Physics package, utilising their Capsule Sweep and Overlap Sphere functions,
+                        for the movement and ground collision respectively of my player.
+
+                    </p>
+                    <p class="text-body personal-text">
+                        When the player stands on floors that are angled, their movement is correctly transformed to lie along this angled plane.
+                        However, if the angle gets too great, the player instead loses control and slides off of the surface.
+                    </p>
+                    <p class="text-body personal-text">
+                        With a custom implementation of movement, velocity management, slope handling and step height,
+                        I could create exactly the type of behaviour necessary for my game and make sure that it worked flawlessly even at very high latencies.
+                    </p>
+                </div>
+
+                <div class="personal-images">
+                    <div class="personal-image">
+                        <img src="gifs/basic-movement.gif" 
+                            alt="Basic movement">
+
+                        <div class="collection-overlay">
+                            <p class="collection-count">A player moving about the scene</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="personal-bar">
+
+            <div class="personal-grid">
+                <div class="personal-content">
+                    <div class="personal-signature">
+                        <p class="signature-name">Wallrunning</p>
+                    </div>
+                    <p class="text-body personal-text">
+                        As the core of the game, I focused heavily on making this feel as intuitive and natural as possible to the player.
+                    </p>
+                    <p class="text-body personal-text">
+                        Whether or not the player is allowed to run along a wall is decided by a couple of rules.
+                        These rules being if the player is airborne, if a sphere around the player is overlapping a wall,
+                        if the players current velocity is high enough,
+                        the time since they last ran on a wall and their viewing angle relative to the direction they are travelling.
+                    </p>
+                    <p class="text-body personal-text">
+                        When wallrunning, the players inputs and resulting velocities are transformed to lie along the plane of the walls normal.
+                        Any velocity going into the wall is nullified,
+                        and a part of the velocity going out from the wall is instead transformed along the wall to give the wallrunning some "stickiness".
+                    </p>
+
+                    <p class="text-body personal-text">
+                        If the player is travelling along a circular wall such as a cylinder,
+                        the angle between the players previously known normal and their current normal is applied to them as a rotation.
+                        This allows the player to naturally travel and flow around round objects.
+                    </p>
+                </div>
+
+                <div class="personal-images">
+
+                    <div class="personal-image">
+                        <img src="gifs/wallrunning.gif" 
+                            alt="Wallrunning">
+
+                        <div class="collection-overlay">
+                            <p class="collection-count">Wallrunning between two vertical walls</p>
+                        </div>
+                    </div>
+
+                    <div class="personal-image">
+                        <img src="gifs/wallrun-cylinder.gif" 
+                            alt="Wallrunning on cylinder">
+
+                        <div class="collection-overlay">
+                            <p class="collection-count">Wallrunning on a cylindrical object, rotating along it</p>
+                        </div>
+                    </div>
+                    
+                </div>
+
+            </div>
+
+            <hr class="personal-bar">
+
+            <div class="personal-grid">
+                <div class="personal-content">
+                    <div class="personal-signature">
+                        <p class="signature-name">Double Jumping</p>
+                    </div>
+                    <p class="text-body personal-text">
+                        To provide the player with a sense of complete control of their own airborne state while also not being difficult to use,
+                        I implemented a special form of in-air jumping.
+                    </p>
+                    <p class="text-body personal-text">
+                        When the player is in the air, they have the option to jump once, providing a small vertical boost and allowing for longer jumps.
+                        With the small amount of general air control and generally high velocities that the player has,
+                        however, I also decided to let this doublejump act as a form of air brake or instantaneous velocity change.
+                    </p>
+                    <p class="text-body personal-text">
+                        If the player decides to jump forwards, it simply acts as a simple burst of vertical velocity. If, however, the player decides to jump diagonally,
+                        the doublejump consumes a set amount of velocity from the player and transfers it towards the desired movement direction to provide a quick burst of air control.
+                    </p>
+
+                    <p class="text-body personal-text">
+                        Doublejumping will always consume the same amount of velocity if possible,
+                        but depending on the desired direction of the jumps angle to the players current velocity,
+                        how much of this consumed velocity is transferred changes. For example, if the player decides to doublejump backwards,
+                        roughly half of the consumed velocity is moved in order to act as a form of brake.
+                    </p>
+                </div>
+
+                <div class="personal-images">
+
+                    <div class="personal-image">
+                        <img src="gifs/doublejump-side.gif" 
+                            alt="Doublejump to the side">
+
+                        <div class="collection-overlay">
+                            <p class="collection-count">Doublejummping to the left</p>
+                        </div>
+                    </div>
+
+                    <div class="personal-image">
+                        <img src="gifs/doublejump-backwards.gif" 
+                            alt="Doublejumping backwards">
+
+                        <div class="collection-overlay">
+                            <p class="collection-count">Doublejumping backwards</p>
+                        </div>
+                    </div>
+                    
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    
+    <footer class="site-footer">
+            <div class="footer-brand">
+                <p class="footer-logo">Contact Info</p>
+                <div class="footer-contact-info">
+                    <p><a href="https://www.linkedin.com/in/felix-tabar-360894291/">LinkedIn</a></p>
+                    <p><a href="tel:+46730677899">+46 73-067 78 99</a></p>
+                    <p><a href="mailto:felix2013@hotmail.se">felix2013@hotmail.se</a></p>
+                    <p>Åsgatan 93, lgh 1004</p>
+                    <p>Falun, Dalarna</p>
+                </div>
+            </div>
+    </footer>
+</body>
+</html>

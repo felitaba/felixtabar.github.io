@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Felix Tabar - Portfolio</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!--
+
+-->
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header" id="header">
+        <div class="container">
+            <nav class="nav-main">
+                <a href="../index.html">About Me</a>
+                <a href="../echo/index.html">Project Echo</a>
+                <a href="#">Entropy</a>
+                <a href="../blaze/index.html">Final Blaze</a>
+                <a href="../personal-project/index.html">Personal Project</a>
+                <a href="../specialisation/index.html">Specialisation</a>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Mobile Navigation -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <nav class="mobile-nav" id="mobileNav">
+        <button class="mobile-nav-close" id="mobileNavClose">×</button>
+        <ul class="mobile-nav-links">
+            <li><a href="#collections">Collections</a></li>
+            <li><a href="#story">Our Story</a></li>
+            <li><a href="#craftsmanship">Craftsmanship</a></li>
+            <li><a href="#contact">Visit Us</a></li>
+        </ul>
+        <div class="mobile-nav-cta">
+            <a href="#contact" class="btn-primary">Book Appointment</a>
+        </div>
+    </nav>
+    
+    <section class="entropy" id="entropy">
+        <!-- <img src="images/project_logo.png" alt="Project Logo" class="project-logo"> -->
+
+        <div class="container">
+            <div class="entropy-grid">
+                <div class="entropy-content">
+                    <p class="text-label entropy-label">Game Project 2</p>
+                    <h2 class="heading-display story-title">
+                        Entropy
+                    </h2>
+                    <p class="text-body entropy-text">
+                        During this game project, I worked as Lead Programmer, guiding the team towards a finished product.
+                        My personal contributions include everything surrounding the players gun and all logic for its projectiles,
+                        as well as some minor puzzle pieces and the exits of all levels.
+                    </p>
+                    <p class="text-body entropy-text">
+                        The game was created in Unreal Engine 5 using its Blueprint system. With a heavy focus on adaptability, PlayStation 5 support, creative puzzles and breathtaking visuals.
+                    </p>
+                    <p class="text-body entropy-text">
+                        In 2025, this game was awarded the Swedish Game Awards New Talent Game of the Year and Best Visuals awards,
+                        as well as being nominated for their New Talent Best Technology and Gamers Choice awards.
+                    </p>
+                </div>
+
+                <div class="entropy-team-image">
+                    <img src="images/SGA.jpg" 
+                        alt="Swedish Game Awards group photo">
+
+                    <div class="collection-overlay">
+                        <p class="collection-count">The team, showcasing the awards for Game of the Year and Best Visuals</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <hr class="entropy-bar">
+
+            <div class="entropy-grid">
+                <div class="entropy-content">
+                    <div class="entropy-signature">
+                        <p class="signature-name">Gun and Orbs of Light</p>
+                    </div>
+
+                    <p class="text-body entropy-text">
+                        As the main and only tool the player has to traverse the games levels, I made sure to get these mechanics to feel as good as possible.
+                        The gun has four main parts to it. Aiming, firing a single orb, recalling a single orb and recalling all fired orbs.
+                    </p>
+
+                    <p class="text-body entropy-text">
+                        In order to avoid having the gun clip through the world, the player dynamically moves the gun away to avoid intersections.
+                        This was done rather than rendering the gun on its own due to some technical limitations,
+                        but this does provide the player a sense of existence inside the games world.
+                    </p>
+
+                    <p class="text-body entropy-text">
+                        As the orbs travel, they sweep a spherical shape across their travel path, and if a collision is found and this collision is not with a puzzle piece,
+                        the travel direction is reflected to create a bounce, and the rest of the orbs travel path is swept along this new direction,
+                        continuing until no more collisions occur.
+                    </p>
+
+                    <p class="text-body entropy-text">
+                        When an orb hits an interactable puzzle piece, it generates a path from the point of collision towards a connection point on the puzzle piece,
+                        then quickly travels along this path to connect.
+                    </p>
+
+                    <p class="text-body entropy-text">
+                        Recalling an orb when multiple have been fired requires a set of rules to decide which orb is to be retrieved first.
+                        The priority of retrieval goes as follows from first to last: <br> Airborne orb -> Orb connected to a puzzle piece -> Orb connected to a Switch (explained further below)
+                    </p>
+
+                    <p class="text-body entropy-text">
+                        If two or more orbs with the same priority can be recalled, the oldest one will be prioritised.
+                    </p>
+                </div>
+
+                <div class="entropy-images">
+
+                    <div class="entropy-image">
+                        <img src="gifs/wall-avoidance.gif" 
+                            alt="Light orb bounce">
+
+                        <div class="collection-overlay">
+                            <p class="collection-count">The gun reacting to the environment, avoiding walls that get too close</p>
+                        </div>
+                    </div>
+
+                    <div class="entropy-image">
+                        <img src="gifs/bounce.gif" 
+                            alt="Light orb bounce">
+
+                        <div class="collection-overlay">
+                            <p class="collection-count">An orb of light bouncing in the environment</p>
+                        </div>
+                    </div>
+
+                    <div class="entropy-image">
+                        <img src="gifs/redirect.gif" 
+                            alt="Light orb connecting">
+
+                        <div class="collection-overlay">
+                            <p class="collection-count">An orb of light connecting with a moving platform</p>
+                        </div>
+                    </div>
+                    
+                </div>
+
+            </div>
+
+            <hr class="entropy-bar">
+
+            <div class="entropy-grid">
+                <div class="entropy-content">
+                    <div class="entropy-signature">
+                        <p class="signature-name">Aiming</p>
+                    </div>
+                    <p class="text-body entropy-text">
+                        Since the game lacks a traditional user interface,
+                        aiming is instead done through the players gun firing a laser beam which displays the exact path that a fired projectile will follow.
+                    </p>
+                    <p class="text-body entropy-text">
+                        This was achieved by reusing the same form of travel and collision logic that the projectiles themselves use.
+                        Sweeping a sphere shape a set distance from the gun towards the point where the player is looking,
+                        bouncing if a hit is found and generating a beam mesh across the found path.
+                    </p>
+                </div>
+
+                <div class="entropy-images">
+                    <div class="entropy-image">
+                        <img src="gifs/aiming.gif" 
+                            alt="Aiming beam">
+
+                        <div class="collection-overlay">
+                            <p class="collection-count">Aiming, displaying the path a fired orb will take</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="entropy-bar">
+
+            <div class="entropy-grid">
+                <div class="entropy-content">
+                    <div class="entropy-signature">
+                        <p class="signature-name">Puzzle Pieces</p>
+                    </div>
+                    <p class="text-body entropy-text">
+                        I worked on two puzzle pieces to the game,
+                        internally called a Switch, and a Possessable Cube.
+                    </p>
+                    <p class="text-body entropy-text">
+                        The Switch connects to other puzzle pieces to disable them and make them not be interactable with until the switch itself has been activated.
+                        <br> Two versions of this switch exist, one of which consumes the orb fired into it,
+                        permanently removing it from the players inventory and allowing for longer more in-depth puzzles,
+                        and the other letting the player retrieve the orb from it like a regular puzzle piece.
+                    </p>
+                    <p class="text-body entropy-text">
+                        The Switch connects to other puzzle pieces to disable them and make them not be interactable with until the switch itself has been activated.
+                        <br> Two versions of this switch exist, one of which consumes the orb fired into it,
+                        permanently removing it from the player and allowing for longer more in-depth puzzles,
+                        and the other letting the player retrieve the orb from it like a regular puzzle piece.
+                    </p>
+
+                    <p class="text-body entropy-text">
+                        The other puzzle piece is a cube which mimics the players movement when interacted with.
+                        Together with a form of Switch acting as a "parking spot" where the cube can be dropped off at allowed for some really creative puzzles.
+                    </p>
+                </div>
+
+                <div class="entropy-images">
+
+                    <div class="entropy-image">
+                        <img src="gifs/switch.gif" 
+                            alt="Light orb bounce">
+
+                        <div class="collection-overlay">
+                            <p class="collection-count">Switch consuming an orb and opening a door</p>
+                        </div>
+                    </div>
+
+                    <div class="entropy-image">
+                        <img src="gifs/possessable-cube.gif" 
+                            alt="Light orb bounce">
+
+                        <div class="collection-overlay">
+                            <p class="collection-count">Player possessing a cube and parking it on top of a switch</p>
+                        </div>
+                    </div>
+                    
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    
+    <footer class="site-footer">
+            <div class="footer-brand">
+                <p class="footer-logo">Contact Info</p>
+                <div class="footer-contact-info">
+                    <p><a href="https://www.linkedin.com/in/felix-tabar-360894291/">LinkedIn</a></p>
+                    <p><a href="tel:+46730677899">+46 73-067 78 99</a></p>
+                    <p><a href="mailto:felix2013@hotmail.se">felix2013@hotmail.se</a></p>
+                    <p>Åsgatan 93, lgh 1004</p>
+                    <p>Falun, Dalarna</p>
+                </div>
+            </div>
+    </footer>
+</body>
+</html>

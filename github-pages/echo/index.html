@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Felix Tabar - Portfolio</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!--
+
+-->
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header" id="header">
+        <div class="container">
+            <nav class="nav-main">
+                <a href="../#">About Me</a>
+                <a href="#">Project Echo</a>
+                <a href="../entropy/index.html">Entropy</a>
+                <a href="../blaze/index.html">Final Blaze</a>
+                <a href="../personal-project/index.html">Personal Project</a>
+                <a href="../specialisation/index.html">Specialisation</a>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Mobile Navigation -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <nav class="mobile-nav" id="mobileNav">
+        <button class="mobile-nav-close" id="mobileNavClose">×</button>
+        <ul class="mobile-nav-links">
+            <li><a href="#collections">Collections</a></li>
+            <li><a href="#story">Our Story</a></li>
+            <li><a href="#craftsmanship">Craftsmanship</a></li>
+            <li><a href="#contact">Visit Us</a></li>
+        </ul>
+        <div class="mobile-nav-cta">
+            <a href="#contact" class="btn-primary">Book Appointment</a>
+        </div>
+    </nav>
+    
+    <section class="echo" id="echo">
+        <!-- <img src="images/project_logo.png" alt="Project Logo" class="project-logo"> -->
+
+        <div class="container">
+            <div class="echo-grid">
+                <div class="echo-content">
+                    <p class="text-label echo-label">Game Project 1</p>
+                    <h2 class="heading-display story-title">
+                        Project Echo
+                    </h2>
+                    <p class="text-body echo-text">
+                        During this game project, I worked with a specific focus on HLSL shaders, scene loading, the player contoller and collision logic.
+                    </p>
+                    <p class="text-body echo-text">
+                        The game was created in C++ using the schools in-house game engine called TenGine. Made with full support for the PlayStation 5 in mind,
+                        this game utilises the Dualshock controllers Gyro, Lightbar, Rumble and Adaptive Triggers to create a unique and unforgettable experience.
+                    </p>
+                    <div class="echo-signature">
+                        <p class="signature-name">Fog and Interactability</p>
+                    </div>
+                    <p class="text-body echo-text">
+                        I implemented custom HLSL pixel and vertex shaders for the fog visible throughout the game, the games main hazard,
+                        as well as three shaders to tell the player whether or not an object is interactable.
+                    </p>
+                    <p class="text-body echo-text">
+                        The fog in the game was created by utilising the depth of the scene to gradually shift the colour of each pixel towards a muddy grey.
+                        The interactability of objects was shown through basic Fresnel shading in blue or green to respectively show what the player is looking at to interact,
+                        or if that object is currently being interacted with.
+                        <br> <br>
+                        If the player is unable to interact with an object, the object receives a red overlay with stripes and noise that travels across the surface.
+                    </p>
+                </div>
+
+                <div class="echo-images">
+
+                    <div class="echo-image">
+                        <img src="images/poster.jpg" 
+                            alt="Red Fresnel shader">
+
+                        <div class="collection-overlay">
+                            <p class="collection-count">In-game company</p>
+                        </div>
+                    </div>
+
+
+                    <div class="echo-image">
+                        <img src="images/echo-fog.png" 
+                            alt="Blue - Green Fresnel shader">
+
+                        <div class="collection-overlay">
+                            <p class="collection-count">Depth based fog</p>
+                        </div>
+                    </div>
+
+                    <div class="echo-image">
+                        <img src="gifs/echo-blue-green-shader.gif" 
+                            alt="Blue - Green Fresnel line shader">
+
+                        <div class="collection-overlay">
+                            <p class="collection-count">Interactability shown through a coloured fresnel shader</p>
+                        </div>
+                    </div>
+
+                    <div class="echo-image">
+                        <img src="gifs/echo-red-shader.gif" 
+                            alt="Red Fresnel shader">
+
+                        <div class="collection-overlay">
+                            <p class="collection-count">Non-interactability shown through a red fresnel shader with stripes and noise</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <hr class="echo-bar">
+
+            <div class="echo-grid">
+                <div class="echo-content">
+                    <div class="echo-signature">
+                        <p class="signature-name">Deathbox</p>
+                    </div>
+                    <p class="text-body echo-text">
+                        The main hazard in the game is the inner edge of the cylinder that the game takes place within,
+                        represented by a bubbling mass that shows up the closer the player gets to the edge.
+                        By utilising layers of Perlin noise, I managed to generate a beautiful repeating animated texture and mesh.
+                    </p>
+                    <p class="text-body echo-text">
+                        Since the bubbling effect on the deathbox mesh is applied per-vertex, this mesh has to be quite high-poly.
+                        Due to this, it became unrealistic to use a model that spanned the length entire cylinder.
+                        Instead, the game utilises a single high-poly plane that follows the players position along the length of the cylinder.
+                    </p>
+                </div>
+
+                <div class="echo-images">
+
+                    <div class="echo-image">
+                        <img src="gifs/echo-deathbox-shader.gif" 
+                            alt="Deathbox shader">
+
+                        <div class="collection-overlay">
+                            <p class="collection-count">Player approaching the edge of the cylinder</p>
+                        </div>
+                    </div>
+                    <div class="echo-image">
+                        <img src="gifs/echo-deathplane-display.gif" 
+                            alt="Deathbox plane display">
+
+                        <div class="collection-overlay">
+                            <p class="collection-count">Shader mesh following the players position along the edge</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="echo-bar">
+
+            <div class="echo-grid">
+                <div class="echo-content">
+                    <div class="echo-signature">
+                        <p class="signature-name">Scene Transitions</p>
+                    </div>
+                    <p class="text-body echo-text">
+                        In order to achieve seamless transitions from one level into another,
+                        the game utilises a Portal 2-esque form of scene transitions.
+                    </p>
+                    <p class="text-body echo-text">
+                        Each level has a room at their start and end that is the same.
+                        As soon as the player exits a level, their position and rotation relative to this room is stored.
+                        When the next level has finished loading, the players position is set to be in starting room of that level,
+                        with the stored relative position and rotation applied. This leads to a fully seamless transition from one level to another
+                    </p>
+                </div>
+
+                <div class="echo-images">
+
+                    <div class="echo-image">
+                        <img src="gifs/echo-scene-transition.gif" 
+                            alt="Scene transition">
+
+                        <div class="collection-overlay">
+                            <p class="collection-count">Player exiting their current level and loading into a new one</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    
+    <footer class="site-footer">
+            <div class="footer-brand">
+                <p class="footer-logo">Contact Info</p>
+                <div class="footer-contact-info">
+                    <p><a href="https://www.linkedin.com/in/felix-tabar-360894291/">LinkedIn</a></p>
+                    <p><a href="tel:+46730677899">+46 73-067 78 99</a></p>
+                    <p><a href="mailto:felix2013@hotmail.se">felix2013@hotmail.se</a></p>
+                    <p>Åsgatan 93, lgh 1004</p>
+                    <p>Falun, Dalarna</p>
+                </div>
+            </div>
+    </footer>
+</body>
+</html>

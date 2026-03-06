@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Felix Tabar - Portfolio</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!--
+
+-->
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header" id="header">
+        <div class="container">
+            <nav class="nav-main">
+                <a href="../index.html">About Me</a>
+                <a href="../echo/index.html">Project Echo</a>
+                <a href="../entropy/index.html">Entropy</a>
+                <a href="../blaze/index.html">Final Blaze</a>
+                <a href="../personal-project/index.html">Personal Project</a>
+                <a href="#">Specialisation</a>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Mobile Navigation -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <nav class="mobile-nav" id="mobileNav">
+        <button class="mobile-nav-close" id="mobileNavClose">×</button>
+        <ul class="mobile-nav-links">
+            <li><a href="#collections">Collections</a></li>
+            <li><a href="#story">Our Story</a></li>
+            <li><a href="#craftsmanship">Craftsmanship</a></li>
+            <li><a href="#contact">Visit Us</a></li>
+        </ul>
+        <div class="mobile-nav-cta">
+            <a href="#contact" class="btn-primary">Book Appointment</a>
+        </div>
+    </nav>
+    
+    <section class="specialisation" id="specialisation">
+        <!-- <img src="images/project_logo.png" alt="Project Logo" class="project-logo"> -->
+
+        <div class="container">
+            <div class="specialisation-grid">
+                <div class="specialisation-content">
+
+                    <p class="text-label specialisation-label">Specialisation</p>
+                    <h2 class="heading-display story-title">
+                        Advanced Collision Detection
+                    </h2>
+                    <p class="text-body specialisation-text">
+                        For four weeks I got to work on a specific topic to specialise within. I chose to work with collision detection, using C++ in the schools in-house engine called TenGine.
+                        I specifically chose this topic as I enjoy vector math and visualising problems in my head.
+                    </p>
+
+                    <p class="text-body specialisation-text">
+                        I also wanted to improve the experience of future students using this engine,
+                        as the only collision types that existed previously were line intersections and sphere overlap collisions.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="specialisation-grid">
+                <div class="specialisation-content">
+
+                    <div class="specialisation-signature">
+                        <p class="signature-name">Capsule Overlap Detection</p>
+                    </div>
+
+                    <p class="text-body specialisation-text">
+                        The first problem to tackle in order to implement a Capsule Overlap check was to first define in a clear and easy way what a capsule is.
+                        Since spheres in the engine are defined as points with a radius, I saw it fit to define my capsule as a line with a radius.
+                    </p>
+
+                    <p class="text-body specialisation-text">
+                        With this defenition in place, I needed a function for finding the closest point on a triangle to the capsules line.
+                        Luckily there exists a lot of documentation of such an algorithm so it was trivial to implement.
+                        I chose to follow an example from Christer Ericson's book called Real Time Collision Detection.
+                    </p>
+                </div>
+
+                <div class="specialisation-images">
+
+                    <div class="specialisation-image">
+                        <img src="images/capsule-overlap.png" 
+                            alt="Capsule overlap">
+
+                        <div class="collection-overlay">
+                            <p class="collection-count">Yellow capsule overlapping a mesh, with all overlapping triangle hits and normals visible as green dots and lines </p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <hr class="specialisation-bar">
+
+            <div class="specialisation-grid" id="sphere-sweep">
+                <div class="specialisation-content">
+                    <div class="specialisation-signature">
+                        <p class="signature-name">Sphere Sweep</p>
+                    </div>
+                    <p class="text-body specialisation-text">
+                        When diving down the rabbit hole that is collision detection of swept shapes, I decided to start my research with how to sweep a sphere.
+                        During my research, I discovered an area of geometry called Minkowski sums.
+                    </p>
+                    <p class="text-body specialisation-text">
+                        With this, I could transfer different attributes from one shape into another.
+                        Allowing me to transfer the radius of the sphere sweep into the triangle,
+                        converting the problem to a line intersection against an expanded triangle.
+                    </p>
+                    <p class="text-body specialisation-text">
+                        This expanded triangle consists of a triangle face that is extruded along its normal by the radius of the sphere,
+                        together with three capsules on each edge with the radius of the sphere (or cylinders for each edge and spheres on each vertex).
+                        <!-- In order to get a point of collision from this shape on the original triangle,
+                        I take the point of intersection between the sweep and the triangles shapes and move it back by the normal of the hit multiplied by the radius of the sweep. -->
+                    </p>
+
+                    <p class="text-body specialisation-text">
+                        Some potential use cases for this type of collision include things such as large projectiles like cannonballs.
+                        Swept spheres were used extensively to calculate the collisions and travel path of the projectiles in
+                        <a href="../entropy/index.html" class="redirect">my second game project Entropy.</a>
+                    </p>
+                </div>
+
+                <div class="specialisation-images">
+                    <div class="specialisation-image">
+                        <img src="images/minkowski-sum.png" 
+                            alt="Minkowski sum">
+
+                        <div class="collection-overlay">
+                            <p class="collection-count">Diagram displaying how a spheres radius can be translated into a cube in a 2D environment <br> Source: Real Time Collision Detection, Christer Ericson</p>
+                        </div>
+                    </div>
+                    <div class="specialisation-image">
+                        <img src="images/sphere-sweep-single-tri.png" 
+                            alt="Sphere sweep">
+
+                        <div class="collection-overlay">
+                            <p class="collection-count">Sphere being swept from left to right, passing through a triangle. The resulting collision is displayed as a green sphere</p>
+                        </div>
+                    </div>
+                    <div class="specialisation-image">
+                        <img src="images/sphere-sweep-debugdraw.png" 
+                            alt="Sphere sweep debug draw">
+
+                        <div class="collection-overlay">
+                            <p class="collection-count">Sphere sweep as it is handled internally, with sphere radius translated into the triangle</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="specialisation-bar">
+
+            <div class="specialisation-grid">
+                <div class="specialisation-content">
+                    <div class="specialisation-signature">
+                        <p class="signature-name">Capsule Sweep</p>
+                    </div>
+                    <p class="text-body specialisation-text">
+                        With the code for transferring a radius into a triangle already done <a href="#sphere-sweep" class="redirect">(Sphere Sweep)</a>,
+                        I could convert the capsule sweep into what can be best described as a plane or a swept line against a rounded triangle prism.
+                    </p>
+                    <p class="text-body specialisation-text">
+                        Using the logic of Minkowski difference, I could also transfer the height property of the capsule sweeps "plane" or extruded line into the triangle too.
+                    </p>
+
+                    <p class="text-body specialisation-text">
+                        Doing all the steps of a Sphere Sweep, as well as extruding the triangle opposite of the height of the swept capsule,
+                        adding capsules for each new edge generated alongside triangles for the walls of the new expanded shape,
+                        I successfully boiled the complicated swept capsule - triangle intersection down into a line intersection against multiple simple shapes.
+                    </p>
+                </div>
+
+                <div class="specialisation-images">
+
+                    <div class="specialisation-image">
+                        <img src="images/capsule-sweep-single-tri.png" 
+                            alt="Capsule sweep">
+
+                        <div class="collection-overlay">
+                            <p class="collection-count">Capsule being swept from left to right, passing through a triangle. The resulting collision is displayed as a green capsule</p>
+                        </div>
+                    </div>
+
+                    <div class="specialisation-image">
+                        <img src="images/capsule-sweep-debugdraw.png" 
+                            alt="Capsule sweep debug draw">
+
+                        <div class="collection-overlay">
+                            <p class="collection-count">Capsule sweep as it is handled internally, with capsule radius and height translated into the triangle.
+                                The orange triangle represents the radius of the capsule, while the purple, blue and red triangles all represent the height of the capsule</p>
+                        </div>
+                    </div>
+                    
+                </div>
+
+            </div>
+
+        </div>
+        
+    </section>
+    
+    <footer class="site-footer">
+            <div class="footer-brand">
+                <p class="footer-logo">Contact Info</p>
+                <div class="footer-contact-info">
+                    <p><a href="https://www.linkedin.com/in/felix-tabar-360894291/">LinkedIn</a></p>
+                    <p><a href="tel:+46730677899">+46 73-067 78 99</a></p>
+                    <p><a href="mailto:felix2013@hotmail.se">felix2013@hotmail.se</a></p>
+                    <p>Åsgatan 93, lgh 1004</p>
+                    <p>Falun, Dalarna</p>
+                </div>
+            </div>
+    </footer>
+</body>
+</html>

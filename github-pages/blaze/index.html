@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Felix Tabar - Portfolio</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!--
+
+-->
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header" id="header">
+        <div class="container">
+            <nav class="nav-main">
+                <a href="../index.html">About Me</a>
+                <a href="../echo/index.html">Project Echo</a>
+                <a href="../entropy/index.html">Entropy</a>
+                <a href="#">Final Blaze</a>
+                <a href="../personal-project/index.html">Personal Project</a>
+                <a href="../specialisation/index.html">Specialisation</a>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Mobile Navigation -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <nav class="mobile-nav" id="mobileNav">
+        <button class="mobile-nav-close" id="mobileNavClose">×</button>
+        <ul class="mobile-nav-links">
+            <li><a href="#collections">Collections</a></li>
+            <li><a href="#story">Our Story</a></li>
+            <li><a href="#craftsmanship">Craftsmanship</a></li>
+            <li><a href="#contact">Visit Us</a></li>
+        </ul>
+        <div class="mobile-nav-cta">
+            <a href="#contact" class="btn-primary">Book Appointment</a>
+        </div>
+    </nav>
+    
+    <section class="blaze" id="blaze">
+        <!-- <img src="images/project_logo.png" alt="Project Logo" class="project-logo"> -->
+
+        <div class="container">
+            <div class="blaze-grid">
+                <div class="blaze-content">
+                    <p class="text-label blaze-label">Game Project 3</p>
+                    <h2 class="heading-display story-title">
+                        Final Blaze
+                    </h2>
+                    <p class="text-body blaze-text">
+                        During this game project, I worked with multiple backend systems handling checkpoints, saving and loading from file and subscene loading/unloading,
+                        as well as highly customisable moving platforms and an interaction system for buttons, levers and pressure plates.
+                        <br>
+                        Made in Unity 6 HDRP using C#, this game blends 2D and 3D platforming and combat gameplay through a fixed following camera.
+                    </p>
+
+                </div>
+            </div>
+
+            <div class="blaze-grid">
+                <div class="blaze-content">
+
+                    <div class="blaze-signature">
+                        <p class="signature-name">Moving Platforms</p>
+                    </div>
+
+                    <p class="text-body blaze-text">
+                        Using a complex spline system, this tool for generating moving platforms allows for very precice control of the platforms movement, speed and behaviour.
+                    </p>
+                    <p class="text-body blaze-text">
+                        This tool was created with full adaptability in mind,
+                        with potential usecases existing for anything that needs to move along a custom path either automatically or on a specific cue.
+                    </p>
+                    <p class="text-body blaze-text">
+                        The platform will follow the path of a spline that the user generates,
+                        then this tool will allow for custom speeds either across the entire spline or along specific sections of the spline.
+                        Using UnityEvents, the platform outputs multiple signals regarding its state to allow for easy implementation of additional systems such as audio.
+                    </p>
+                </div>
+
+                <div class="blaze-images">
+
+                    <div class="blaze-image">
+                        <img src="gifs/platforms-travelling.gif" 
+                            alt="Moving Platforms">
+
+                        <div class="collection-overlay">
+                            <p class="collection-count">Two platforms travelling along their path and waiting at their start and endpoints</p>
+                        </div>
+                    </div>
+
+                    <div class="blaze-image">
+                        <img src="gifs/enemies-running.gif" 
+                            alt="Enemies running using Spline Follower Script">
+
+                        <div class="collection-overlay">
+                            <p class="collection-count">Enemies running in the background of a level, using the same logic as a moving platform</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="spacing">
+
+                <div class="spline-follower">
+                    <img src="images/spline-follower.png" 
+                        alt="Spline follower script">
+
+                    <div class="collection-overlay">
+                        <p class="collection-count">The script controlling an objects behaviour along a spline</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <hr class="blaze-bar">
+
+            <div class="blaze-grid">
+                <div class="blaze-content">
+                    <div class="blaze-signature">
+                        <p class="signature-name">Checkpoints, Saving and Scene Loading</p>
+                    </div>
+                    <p class="text-body blaze-text">
+                        As the player travels through the game, they will traverse through multiple checkpoints.
+                        Each of which hold information about which sublevels are relevant to this point of the game.
+                    </p>
+                    <p class="text-body blaze-text">
+                        When the player enters a checkpoint, a unique ID belonging to that specific checkpoint is saved alongside which scene the checkpoint exists within into a JSON file and other variables regarding the players current state.
+                        If the user then were to restart the game, the scene containing that checkpoint is loaded and the checkpoint loads all missing related levels.
+                    </p>
+                    <p class="text-body blaze-text">
+                        The loading and unloading of scenes was implemented asynchronously to ensure maximum stability and zero stuttering or freezing when playing through the game.
+                    </p>
+                </div>
+
+                <div class="blaze-images">
+                    <div class="blaze-image">
+                        <img src="gifs/subscene-loading.gif" 
+                            alt="Subscenes loading">
+
+                        <div class="collection-overlay">
+                            <p class="collection-count">Subscenes dynamically loading and unloading as the player moves through the level</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    
+    <footer class="site-footer">
+            <div class="footer-brand">
+                <p class="footer-logo">Contact Info</p>
+                <div class="footer-contact-info">
+                    <p><a href="https://www.linkedin.com/in/felix-tabar-360894291/">LinkedIn</a></p>
+                    <p><a href="tel:+46730677899">+46 73-067 78 99</a></p>
+                    <p><a href="mailto:felix2013@hotmail.se">felix2013@hotmail.se</a></p>
+                    <p>Åsgatan 93, lgh 1004</p>
+                    <p>Falun, Dalarna</p>
+                </div>
+            </div>
+    </footer>
+</body>
+</html>

@@ -324,8 +324,7 @@ a {
 
 .spline-follower {
 	position: absolute;
-  	left: 50%;
-  	transform: translateX(-50%);
+	width: 100%;
 }
 
 .spline-follower img {
@@ -484,23 +483,13 @@ a {
 		padding: 0.7rem 1rem;
 	}
 
-	.craft-stats {
-		gap: var(--space-md);
-		padding: var(--space-sm) var(--space-md);
-		left: var(--space-md);
-		right: var(--space-md);
+	.blaze-images{
+		display: flex;
+		flex-direction: column;
 	}
 }
 
 @media (max-width: 860px) {
-	.nav-main {
-		display: none;
-	}
-
-	.menu-toggle {
-		display: flex;
-	}
-
 	.hero {
 		grid-template-columns: 1fr;
 		height: auto;
@@ -529,38 +518,6 @@ a {
 		grid-template-columns: 1fr;
 	}
 
-	.featured-content {
-		padding-right: 0;
-		order: 2;
-	}
-
-	.featured-image-wrapper {
-		order: 1;
-	}
-
-	.story-content {
-		padding-right: 0;
-	}
-
-	.craft-content {
-		order: 2;
-	}
-
-	.craft-image-wrapper {
-		order: 1;
-	}
-
-	.craft-stats {
-		position: static;
-		margin-top: var(--space-md);
-		justify-content: center;
-	}
-
-	.testimonials-grid {
-		grid-template-columns: 1fr;
-		gap: var(--space-md);
-	}
-
 	.contact-content {
 		padding-right: 0;
 	}
@@ -570,177 +527,9 @@ a {
 		gap: var(--space-lg);
 	}
 
-	.footer-brand {
-		grid-column: 1 / -1;
-		padding-right: 0;
-	}
-
 	.footer-bottom {
 		flex-direction: column;
 		gap: var(--space-md);
 		text-align: center;
 	}
-}
-
-@media (max-width: 768px) {
-	.collections-grid {
-		grid-template-columns: 1fr 1fr;
-	}
-
-	.collection-item:nth-child(1) {
-		grid-column: 1 / -1;
-		grid-row: auto;
-	}
-
-	.collection-item:nth-child(2),
-	.collection-item:nth-child(3),
-	.collection-item:nth-child(4),
-	.collection-item:nth-child(5) {
-		grid-column: auto;
-		grid-row: auto;
-	}
-
-	.collection-item:nth-child(1) .collection-image {
-		min-height: 300px;
-	}
-
-	.collection-overlay {
-		opacity: 1;
-	}
-
-	.story-images {
-		grid-template-columns: 1fr;
-		gap: var(--space-sm);
-	}
-
-	.story-image:first-child {
-		margin-top: 0;
-	}
-
-	.section-header {
-		flex-direction: column;
-		align-items: flex-start;
-		gap: var(--space-md);
-	}
-
-	.testimonials-grid {
-		grid-template-columns: repeat(2, 1fr);
-	}
-
-	.testimonial-card:nth-child(3) {
-		grid-column: 1 / -1;
-	}
-}
-
-@media (max-width: 576px) {
-	:root {
-		--space-lg: 3rem;
-		--space-xl: 4rem;
-		--space-2xl: 6rem;
-	}
-
-	.hero-actions {
-		flex-direction: column;
-		align-items: flex-start;
-	}
-
-	.collections-grid {
-		grid-template-columns: 1fr;
-	}
-
-	.collection-item:nth-child(n) {
-		grid-column: 1;
-	}
-
-	.craft-stats {
-		flex-direction: column;
-		gap: var(--space-md);
-	}
-
-	.testimonials-grid {
-		grid-template-columns: 1fr;
-	}
-
-	.testimonial-card:nth-child(3) {
-		grid-column: auto;
-	}
-
-	.footer-grid {
-		grid-template-columns: 1fr;
-	}
-}
-
-/* Mobile Navigation */
-.mobile-nav {
-	position: fixed;
-	top: 0;
-	right: -100%;
-	width: 100%;
-	max-width: 400px;
-	height: 100vh;
-	height: 100dvh;
-	background-color: var(--color-warm-white);
-	z-index: 2000;
-	padding: var(--space-xl) var(--space-md);
-	/* transition: right 0.4s ease; */
-	display: flex;
-	flex-direction: column;
-	overflow-y: auto;
-	overscroll-behavior: contain;
-}
-
-.mobile-nav.active {
-	right: 0;
-}
-
-.mobile-nav-close {
-	position: absolute;
-	top: var(--space-md);
-	right: var(--space-md);
-	background: none;
-	border: none;
-	font-size: 1.5rem;
-	cursor: pointer;
-	color: var(--color-charcoal);
-}
-
-.mobile-nav-links {
-	list-style: none;
-	margin-top: var(--space-xl);
-}
-
-.mobile-nav-links li {
-	margin-bottom: var(--space-md);
-}
-
-.mobile-nav-links a {
-	font-family: var(--font-display);
-	font-size: 2rem;
-	font-weight: 400;
-	color: var(--color-charcoal);
-	/* transition: color 0.3s ease; */
-}
-
-.mobile-nav-links a:hover {
-	color: var(--color-gold);
-}
-
-.mobile-nav-cta {
-	margin-top: var(--space-xl);
-	padding-bottom: var(--space-md);
-}
-
-.mobile-overlay {
-	position: fixed;
-	inset: 0;
-	background-color: rgba(0, 0, 0, 0.4);
-	z-index: 1999;
-	opacity: 0;
-	visibility: hidden;
-	/* transition: opacity 0.4s ease, visibility 0.4s ease; */
-}
-
-.mobile-overlay.active {
-	opacity: 1;
-	visibility: visible;
 }
